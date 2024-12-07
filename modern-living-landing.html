@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadepark Properties</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .announcement-bar {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .hero-section {
+            position: relative;
+            min-height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            padding: 6rem 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-family: serif;
+            font-size: 4rem;
+            font-weight: 300;
+            line-height: 1.2;
+            color: #ffffff;
+        }
+        
+        .hero-title span {
+            font-style: italic;
+        }
+        
+        .hero-description {
+            color: #ffffff;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 2rem 0;
+        }
+        
+        .custom-btn {
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar {
+            background-color: transparent;
+            padding: 1rem 0;
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            color: #fff;
+        }
+        
+        .nav-link {
+            color: #fff !important;
+            margin: 0 1rem;
+        }
+        
+        .call-agent-btn {
+            background-color: #ffffff;
+            color: #000000;
+            border-radius: 25px;
+            padding: 8px 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+        }
+
+        /* Add these styles to the existing CSS */
+    .experience-section {
+        padding: 100px 0;
+        background-color: #ffffff;
+    }
+    
+    .experience-title {
+        font-family: serif;
+        font-size: 4rem;
+        line-height: 1.2;
+        margin-bottom: 2rem;
+    }
+    
+    .experience-title .elevated {
+        font-style: italic;
+        display: block;
+    }
+    
+    .stats-container {
+        margin: 4rem 0;
+        padding: 2rem 0;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .stat-item {
+        text-align: center;
+    }
+    
+    .stat-number {
+        font-size: 3.5rem;
+        font-weight: 600;
+        position: relative;
+    }
+    
+    .stat-number::after {
+        content: "+";
+        font-size: 2rem;
+        position: absolute;
+        top: 0;
+        margin-left: 5px;
+    }
+    
+    .stat-label {
+        color: #666;
+        margin-top: 0.5rem;
+    }
+    
+    .gallery-container {
+        margin-top: 4rem;
+    }
+    
+    .gallery-image {
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .gallery-image img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+    
+    .gallery-nav {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    
+    .nav-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #ddd;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .nav-dot.active {
+        background-color: #333;
+    }
+    
+    @media (max-width: 768px) {
+        .experience-title {
+            font-size: 2.5rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+        }
+    }
+     /* Add these styles to the existing CSS */
+     .facilities-section {
+        padding: 100px 0;
+        background-color: #ffffff;
+    }
+    
+    .facilities-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 3rem;
+    }
+    
+    .facilities-title {
+        font-family: serif;
+        font-size: 3.5rem;
+        line-height: 1.2;
+    }
+    
+    .facilities-title span {
+        font-style: italic;
+    }
+    
+    .explore-btn {
+        background-color: #0f172a;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 30px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .explore-btn:hover {
+        background-color: #1e293b;
+        color: white;
+        transform: translateY(-2px);
+    }
+    
+    .facility-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        height: 100%;
+        transition: transform 0.3s ease;
+    }
+    
+    .facility-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .facility-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+    
+    .facility-content {
+        padding: 1.5rem;
+    }
+    
+    .facility-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+    
+    .facility-description {
+        color: #666;
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+    
+    .small-card {
+        height: 200px;
+    }
+    
+    @media (max-width: 768px) {
+        .facilities-title {
+            font-size: 2.5rem;
+        }
+        
+        .facilities-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+    }
+
+    .bank-logo {
+            height: 30px;
+            object-fit: contain;
+            opacity: 0.7;
+        }
+        
+        .testimonial-quote {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #4a4a4a;
+        }
+        
+        .client-name {
+            color: #333;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+        
+        .client-position {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-image {
+            border-radius: 8px;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        .quote-mark {
+            font-size: 4rem;
+            line-height: 1;
+            color: #333;
+            font-family: Georgia, serif;
+        }
+        .property-card {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .property-card:hover {
+            transform: translateY(-5px);
+        }
+        .property-image {
+            height: 300px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .location {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .nav-arrows {
+            margin-top: 2rem;
+        }
+        .nav-arrows button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            background: white;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+        .nav-arrows button:hover {
+            background: #f8f9fa;
+        }
+        .faq-section {
+            background-color: #f8f9fa;
+            padding: 4rem 0;
+        }
+        
+        .hero-image {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+            border-radius: 1rem;
+            padding: 2rem;
+            color: white;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: #fff;
+            box-shadow: none;
+            color: #000;
+        }
+        
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(0,0,0,.125);
+        }
+        
+        .accordion-item {
+            border: none;
+            margin-bottom: 0.5rem;
+        }
+        
+        .accordion-button {
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 0.25rem !important;
+        }
+        /* Text Mask Effect */
+        .text-mask-container {
+            position: relative;
+            width: 100%;
+            padding: 2rem 0;
+            overflow: hidden;
+            background-color: #f8f8f8;
+        }
+
+        .masked-text {
+            font-size: clamp(5rem, 15vw, 12rem);
+            font-weight: 900;
+            text-transform: lowercase;
+            background-image: url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 0;
+            line-height: 1;
+            text-align: center;
+        }
+
+        /* Nature Background Strip */
+        .nature-strip {
+            width: 100%;
+            height: 200px;
+            background-image: url('/api/placeholder/1920/400');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer Navigation */
+        .footer-nav {
+            padding: 1rem 0;
+            border-top: 1px solid #eee;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #000;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar text-center">
+        <div class="container">
+            🏠 Enjoy Exclusive Discounts on Luxury Homes! Lock in Special Rates Until 30 October 2024. 
+            <a href="#" class="text-white text-decoration-none">Explore Now →</a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Jadepark</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Property</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact us</a>
+                    </li>
+                </ul>
+                <a href="#" class="call-agent-btn text-decoration-none">Call Agent Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Modern<br>
+                    Living in<br>
+                    Vibrant<br>
+                    <span>Cityscapes</span>
+                </h1>
+                <p class="hero-description">
+                    Discover modern, sleek apartments and stylish condos located in the heart of bustling urban areas, 
+                    where convenience meets comfort. Enjoy easy access to shopping, dining, entertainment, and 
+                    everything the city has to offer, right at your doorstep.
+                </p>
+                <a href="#" class="btn btn-light custom-btn">Explore Properties →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+<section class="experience-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="experience-title">
+                    Experience
+                    <span class="elevated">elevated</span>
+                    Living with
+                    Jadepark X
+                </h2>
+            </div>
+            <div class="col-lg-6">
+                <p class="mb-4">We are committed to offering high-quality, affordable, and luxurious homes in prime locations. Our properties are designed to provide comfort, privacy, and convenience. Whether you're looking for a cozy apartment in the city or a spacious home in a quiet neighborhood, we have something for everyone.</p>
+                
+                <p>We believe that home is where you find peace and comfort. Our housing developments come with a wide range of facilities, including playgrounds, parks, shopping centers, and schools, to ensure that you and your family enjoy a complete and fulfilling lifestyle.</p>
+            </div>
+        </div>
+
+        <div class="stats-container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <div class="stat-number">14</div>
+                        <div class="stat-label">Awards Winning</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <div class="stat-number">250</div>
+                        <div class="stat-label">Property Ready</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <div class="stat-number">85</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="gallery-image">
+                        <img src="/api/placeholder/800/600" alt="Modern Kitchen Interior" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="gallery-image">
+                        <img src="/api/placeholder/800/600" alt="Luxury Living Room" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-nav mt-4">
+                <div class="nav-dot active"></div>
+                <div class="nav-dot"></div>
+                <div class="nav-dot"></div>
+                <div class="nav-dot"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="facilities-section">
+    <div class="container">
+        <div class="facilities-header">
+            <h2 class="facilities-title">
+                Facilities that <span>we offer</span>
+            </h2>
+            <a href="#" class="explore-btn">
+                Explore More
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+        
+        <p class="text-muted mb-5">Our facilities are designed to enhance comfort, convenience, and luxury for all residents, ensuring that you enjoy every moment in your new home.</p>
+        
+        <div class="row g-4">
+            <!-- Swimming Pool Card -->
+            <div class="col-md-6">
+                <div class="facility-card">
+                    <img src="/api/placeholder/800/500" alt="Swimming Pool" class="facility-image">
+                    <div class="facility-content">
+                        <h3 class="facility-title">Swimming Pool</h3>
+                        <p class="facility-description">
+                            Take a refreshing dip in our beautifully maintained swimming pools, available in select residential complexes. Whether you prefer a morning swim or a leisurely afternoon by the pool, our pools offer the perfect setting for relaxation and recreation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fitness Center Card -->
+            <div class="col-md-6">
+                <div class="facility-card">
+                    <img src="/api/placeholder/800/500" alt="Fitness Center" class="facility-image">
+                    <div class="facility-content">
+                        <h3 class="facility-title">Fitness Training Center</h3>
+                        <p class="facility-description">
+                            Stay fit and healthy without leaving your home! Our state-of-the-art fitness centers come equipped with the latest gym equipment, suitable for all fitness levels. Whether you're into cardio, weight training, or yoga, you'll find everything you need.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Green Space Card -->
+            <div class="col-md-4">
+                <div class="facility-card">
+                    <img src="/api/placeholder/800/500" alt="Green Space" class="facility-image">
+                    <div class="facility-content">
+                        <h3 class="facility-title">Green Space</h3>
+                        <p class="facility-description">
+                            Take a refreshing stroll in our beautifully maintained parks and green spaces, perfect for relaxation and outdoor activities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Security Card -->
+            <div class="col-md-4">
+                <div class="facility-card">
+                    <img src="/api/placeholder/800/500" alt="24/7 Security" class="facility-image">
+                    <div class="facility-content">
+                        <h3 class="facility-title">24/7 Security</h3>
+                        <p class="facility-description">
+                            Safety and convenience are our top priorities. Our properties feature round-the-clock security and dedicated concierge services.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Parking Card -->
+            <div class="col-md-4">
+                <div class="facility-card">
+                    <img src="/api/placeholder/800/500" alt="Parking Facilities" class="facility-image">
+                    <div class="facility-content">
+                        <h3 class="facility-title">Parking Facilities</h3>
+                        <p class="facility-description">
+                            We offer convenient parking options and transportation facilities to make commuting and travel easier for our residents.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container py-5">
+    <!-- Trusted Banks Section -->
+    <div class="text-center mb-5">
+        <h2 class="h3 mb-4">Trusted by leading banks</h2>
+        <div class="row justify-content-center align-items-center g-4">
+            <div class="col-6 col-md-2">
+                <img src="bank-of-america-logo.png" alt="Bank of America" class="bank-logo">
+            </div>
+            <div class="col-6 col-md-2">
+                <img src="union-bank-logo.png" alt="Union Bank" class="bank-logo">
+            </div>
+            <div class="col-6 col-md-2">
+                <img src="hsbc-logo.png" alt="HSBC" class="bank-logo">
+            </div>
+            <div class="col-6 col-md-2">
+                <img src="citizens-bank-logo.png" alt="Citizens Bank" class="bank-logo">
+            </div>
+            <div class="col-6 col-md-2">
+                <img src="citigroup-logo.png" alt="Citigroup" class="bank-logo">
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="mt-5">
+        <h2 class="h2 mb-4">What Our <em>Clients Say</em></h2>
+        <p class="text-muted mb-5">We're proud to have helped many clients find their dream homes. Here's what some of them had to say about working with us.</p>
+        
+        <div class="row g-4">
+            <div class="col-12 col-lg-6">
+                <div class="pe-lg-5">
+                    <div class="quote-mark">"</div>
+                    <p class="testimonial-quote">Buying our first home was made so easy by their team. They listened to our needs, provided great options, and were transparent throughout the process. We are thrilled with our new home in South Jakarta. Highly recommended!</p>
+                    <div class="mt-4">
+                        <p class="client-name mb-1">Vermillion D. Gray</p>
+                        <p class="client-position">CEO, hacksite.ai</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <img src="happy-couple.jpg" alt="Happy homeowners" class="testimonial-image">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--  -->
+
+
+<div class="container py-5">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="display-4 mb-3">Our Latest Listings</h1>
+            <p class="text-muted">Explore our newest properties available for sale or rent. We offer houses and apartments in various locations to match your lifestyle and budget.</p>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Property Card 1 -->
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="property-card shadow-sm">
+                <img src="/api/placeholder/600/400" alt="Tranquil Residences" class="property-image">
+                <div class="p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h2 class="h4 mb-0">Tranquil Residences</h2>
+                        <span class="price">$948.55</span>
+                    </div>
+                    <p class="location mb-3">South Jakarta, Indonesia</p>
+                    <p class="text-muted">A 4-bedroom house with a large garden, located in a quiet neighborhood with easy access to public facilities.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Property Card 2 -->
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="property-card shadow-sm">
+                <img src="/api/placeholder/600/400" alt="Luxe Haven" class="property-image">
+                <div class="p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h2 class="h4 mb-0">Luxe Haven</h2>
+                        <span class="price">$739.65</span>
+                    </div>
+                    <p class="location mb-3">South Jakarta, Indonesia</p>
+                    <p class="text-muted">Modern luxury home with premium finishes and spacious living areas.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Property Card 3 -->
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="property-card shadow-sm">
+                <img src="/api/placeholder/600/400" alt="Aurora Estate" class="property-image">
+                <div class="p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h2 class="h4 mb-0">Aurora Estate</h2>
+                        <span class="price">$825.00</span>
+                    </div>
+                    <p class="location mb-3">South Jakarta, Indonesia</p>
+                    <p class="text-muted">Contemporary design meets comfort in this stunning estate.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div class="nav-arrows text-center">
+        <button class="prev" aria-label="Previous">←</button>
+        <button class="next" aria-label="Next">→</button>
+    </div>
+</div>
+
+<!--  -->
+
+<section class="faq-section">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-5">
+                <div class="hero-image">
+                    <h2 class="display-5 mb-3">Frequently Asked Questions</h2>
+                    <p class="lead mb-0">We're proud to have helped many clients find their dream homes. Here's what some of them had to say about working with us.</p>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="accordion" id="faqAccordion">
+                    <!-- Question 1 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                How do I start the process of buying a property?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Content for the first question goes here.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                What should I look for when buying a home?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Content for the second question goes here.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                How much do I need for a down payment?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Content for the third question goes here.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                Can I get help with selling my property?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Absolutely! Our team will help you with every aspect of selling your property, including pricing, marketing, and negotiating with buyers. We'll guide you through the process to ensure a smooth sale.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 5 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                Do you offer property management services?
+                            </button>
+                        </h2>
+                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Content for property management services goes here.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 6 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                What are the fees involved when buying or selling a property?
+                            </button>
+                        </h2>
+                        <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Content about fees goes here.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 7 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                                How can I find out if I'm eligible for a mortgage?
+                            </button>
+                        </h2>
+                        <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Content about mortgage eligibility goes here.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--  -->
+
+  <!-- Text Mask Section -->
+  <div class="text-mask-container">
+    <h1 class="masked-text">Jadepark</h1>
+</div>
+
+<!-- Nature Strip -->
+<div class="nature-strip"></div>
+
+<!-- Footer Navigation -->
+<footer class="footer-nav">
+    <div class="container">
+        <div class="footer-content">
+            <div class="copyright">
+                © 2023 Jadepark X Webdesign. All rights reserved.
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Property</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact us</a></li>
+            </ul>
+
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple gallery navigation
+        document.querySelectorAll('.nav-dot').forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                document.querySelectorAll('.nav-dot').forEach(d => d.classList.remove('active'));
+                dot.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
